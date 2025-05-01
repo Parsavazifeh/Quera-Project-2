@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'YekanBakh';
+    src: url('../fonts/YekanBakh.woff2') format('woff2'),
+         url('../fonts/YekanBakh.woff') format('woff'),
+         url('../fonts/YekanBakh.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'YekanBakh', sans-serif;
+  }
+  
