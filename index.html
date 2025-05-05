@@ -1,27 +1,162 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <aside class="sidebar-container">
+      <div class="sidebar-info">
+        <div class="img">
+          <img src="./assets/img/Ellipse 136 (2).svg" alt="profile picture" />
+        </div>
+        <div class="desc">
+          <label>سلام، رویا</label>
+          <span>سه‌شنبه، ۵ بهمن ۱۴۰۲</span>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li>
+            <img src="./assets/img/home-2.svg" alt="home icon" />
+            <span>خانه</span>
+          </li>
+          <li>
+            <img src="./assets/img/task-square.svg" alt="task icon" />
+            <span>تسک‌ها</span>
+          </li>
+          <li>
+            <img src="./assets/img/calendar.svg" alt="calendar icon" />
+            <span>تقویم</span>
+          </li>
+          <li>
+            <img src="./assets/img/arrange-square-2.svg" alt="report icon" />
+            <span>گزارشات</span>
+          </li>
+          <li>
+            <img src="./assets/img/setting.svg" alt="setting icon" />
+            <span>تنظیمات</span>
+          </li>
+          <li>
+            <img src="./assets/img/24-support.svg" alt="support icon" />
+            <span>پشتیبانی</span>
+          </li>
+          <li>
+            <img src="./assets/img/profile.svg" alt="profile icon" />
+            <span>پروفایل</span>
+          </li>
+        </ul>
+      </div>
+      <div class="dark-light-mode">
+        <button class="light-mode">
+          <img src="./assets/img/sun.svg" alt="sun icon" />
+          <span>روشن</span>
+        </button>
+        <button class="dark-mood">
+          <img src="./assets/img/moon.svg" alt="moon icon" />
+          <span>تاریک</span>
+        </button>
+      </div>
+      <img src="./assets/img/Line 481.svg" alt="line" class="line" />
+      <button class="exitButton">
+        <img src="./assets/img/logout.svg" alt="exitButton icon" />
+        <span>خروج</span>
+      </button>
+    </aside>
     <!-- <sidebar></sidebar> -->
-    <main class="main-section">
-        <h3>
-            تسک‌های امروز
-        </h3>
-        <h5>
-            <span>3 </span>تسک را باید انجام دهید.
-        </h5>
-        <h3>
-            تسک‌های انجام شده
-        </h3>
-        <h5>
-            <span>3 </span>تسک انجام شده است.
-        </h5>
+    <main>
+      <section class="todo-creations-group">
+        <div class="today-task">
+          <h3>تسک‌های امروز</h3>
+          <h5><span>3 </span>تسک را باید انجام دهید.</h5>
+          <button class="add-task-btn">
+            <img src="./assets/img/add.svg" alt="plus icon" />
+            <span>افزودن وظیفه جدید</span>
+          </button>
+        </div>
+        <img src="./assets/img/Frame 1000005523.png" alt="no task image" />
+      </section>
+
+      <section class="todo-creations-container">
+        <div class="todo-creations-top">
+          <input
+            type="text"
+            placeholder="نام تسک"
+            class="todo-creation-title"
+          />
+          <textarea
+            name=""
+            id=""
+            placeholder="توضیحات"
+            rows="2"
+            class="todo-creation-desc"
+          ></textarea>
+          <div class="priority-container">
+            <button class="priority-selection-btn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.51661 2.58331H13.0499C13.6166 2.58331 14.325 2.97498 14.625 3.45831L18.1083 9.02498C18.4416 9.56665 18.4083 10.4166 18.025 10.925L13.7083 16.675C13.4 17.0833 12.7333 17.4166 12.225 17.4166H3.51661C2.05828 17.4166 1.17498 15.8166 1.94165 14.575L4.24995 10.8833C4.55828 10.3916 4.55828 9.59165 4.24995 9.09998L1.94165 5.40831C1.17498 4.18331 2.06661 2.58331 3.51661 2.58331Z"
+                  stroke="#AFAEB2"
+                  stroke-width="1.25"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <span>تگ‌ها</span>
+            </button>
+
+            <div class="priority-list">
+              <span class="priority low">
+                <label for="low-priority">پایین</label>
+                <input
+                  type="radio"
+                  name="priority"
+                  id="low-priority"
+                  value="low"
+                />
+              </span>
+              <!-- <hr class="hr-priority" /> -->
+              <img src="./assets/img/Line 485 (1).svg" alt="line" />
+              <span class="priority mid">
+                <label for="mid-priority">متوسط</label>
+                <input
+                  type="radio"
+                  name="priority"
+                  id="mid-priority"
+                  value="mid"
+                />
+              </span>
+              <!-- <hr class="hr-priority" /> -->
+              <img src="./assets/img/Line 485 (1).svg" alt="line" />
+              <span class="priority high">
+                <label for="high-priority">بالا</label>
+                <input
+                  type="radio"
+                  name="priority"
+                  id="high-priority"
+                  value="high"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- <img src="./assets/img/Line 483.svg" alt="line" /> -->
+        <hr />
+        <div class="todo-creations-bottom">
+          <button class="todo-creation-btn">اضافه کردن تسک</button>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
