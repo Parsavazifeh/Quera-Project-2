@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- start of sidebar -->
     <aside class="sidebar-container">
         <div class="sidebar-info">
             <div class="img">
@@ -68,24 +69,28 @@
             <span>خروج</span>
         </button>
     </aside>
-
+    <!-- end of sidebar -->
     <main>
+        <!-- start of before adding a new task -->
         <section class="todo-creations-group">
             <div class="today-task">
                 <h3>تسک‌های امروز</h3>
-                <h5><span>3 </span>تسک را باید انجام دهید.</h5>
+                <h5><span id="count"> </span>تسک را باید انجام دهید.</h5>
                 <button class="add-task-btn">
                     <img src="./assets/img/add.svg" alt="plus icon" />
                     <span>افزودن وظیفه جدید</span>
                 </button>
             </div>
+            <img src="./assets/img/Frame 1000005523.png" alt="add task image" class="image" />
+            <!-- start of adding a new task -->
             <section class="todo-creations-container">
                 <div class="todo-creations-top">
                     <input type="text" placeholder="نام تسک" class="todo-creation-title" />
-                    <textarea name="" id="" placeholder="توضیحات" rows="1" class="todo-creation-desc"></textarea>
+                    <textarea name="" id="" placeholder="توضیحات" rows="2" class="todo-creation-desc"></textarea>
                     <div class="priority-container">
                         <button class="priority-selection-btn">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M3.51661 2.58331H13.0499C13.6166 2.58331 14.325 2.97498 14.625 3.45831L18.1083 9.02498C18.4416 9.56665 18.4083 10.4166 18.025 10.925L13.7083 16.675C13.4 17.0833 12.7333 17.4166 12.225 17.4166H3.51661C2.05828 17.4166 1.17498 15.8166 1.94165 14.575L4.24995 10.8833C4.55828 10.3916 4.55828 9.59165 4.24995 9.09998L1.94165 5.40831C1.17498 4.18331 2.06661 2.58331 3.51661 2.58331Z"
                                     stroke="#AFAEB2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"
@@ -93,19 +98,16 @@
                             </svg>
                             <span>تگ‌ها</span>
                         </button>
-    
                         <div class="priority-list">
                             <span class="priority low">
                                 <label for="low-priority">پایین</label>
                                 <input type="radio" name="priority" id="low-priority" value="low" />
                             </span>
-                            
                             <img src="./assets/img/Line 485 (1).svg" alt="line" />
                             <span class="priority mid">
                                 <label for="mid-priority">متوسط</label>
                                 <input type="radio" name="priority" id="mid-priority" value="mid" />
                             </span>
-    
                             <img src="./assets/img/Line 485 (1).svg" alt="line" />
                             <span class="priority high">
                                 <label for="high-priority">بالا</label>
@@ -114,14 +116,31 @@
                         </div>
                     </div>
                 </div>
+                <!-- <img src="./assets/img/Line 483.svg" alt="line" /> -->
                 <hr />
                 <div class="todo-creations-bottom">
                     <button class="todo-creation-btn">اضافه کردن تسک</button>
                 </div>
             </section>
-            <img src="./assets/img/Frame 1000005523.png" alt="no task image" />
+            <section class="task">
+                <div>
+                    <img class="red-line" src="./assets/img/redline.png" alt="red-line">
+                    <div class="task-title">
+                        <input type="checkbox" class="todo">
+                        <p>جلسه با مدیران پروژه</p>
+                        <label class="high priority" for="high-priority">بالا</label>
+                    </div>
+                    <h5>
+                        جلسه با محسن یگانه و مریم جلالی
+                    </h5>
+                </div>
+                <img class="task-threedots" src="./assets/img/threedots.png" alt="threedots"/>
+            </section>
+            <!-- end of adding a new task -->
         </section>
+        <!-- end of before adding a new task -->
     </main>
+    <script src="./app.js"></script>
 </body>
 
 </html>
