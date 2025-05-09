@@ -40,7 +40,6 @@ body {
   border-radius: 16px;
   background-color: #FFFFFF;
   box-shadow: 0px 4px 58.5px 0px #0000000F;
-
 }
 
 .sidebar-info {
@@ -225,7 +224,7 @@ span {
 }
 
 .todo-creations-container {
-  display: none;
+  display: flex;
   border-radius: 12px;
   flex-direction: column;
   border: 1px solid #E9E9E9;
@@ -326,11 +325,14 @@ hr {
 }
 
 .priority {
+  width: min-content;
   border-radius: 4px;
   padding: 2px 8px;
   font-weight: 700;
   font-size: 12px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
 }
 
 .low {
@@ -344,7 +346,7 @@ hr {
 }
 
 .high {
-  background-color: #FFE2DB;
+  background-color: #FFE2DB; 
   color: #FF5F37;
 }
 
@@ -390,6 +392,7 @@ hr {
   background-color: var(--Oil01);
   padding: 24px 20px 24px 24px;
   position: relative;
+  margin-bottom: 12px;
 }
 
 .red-line {
@@ -405,6 +408,8 @@ hr {
 
 .task-threedots {
   align-self: flex-start;
+  text-align: end;
+  cursor: pointer;
 }
 
 .task-title {
@@ -417,14 +422,29 @@ hr {
   font-weight: 700;
 }
 
-h5{
+.task-h5{
   font-size: 14px;
   font-weight: 400;
   color: var(--Neutral);
+  text-align: start;
+  margin-right: 32px;
 }
 
 input[type="checkbox"].todo {
   transform: scale(1.5); 
   accent-color: #007BFF;         
   margin-right: 0.3em;
+}
+
+.task-popup img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.task-popup {
+  border-radius: 12px;
+  box-shadow: 0px 12px 24px -6px #1414190F;
+  border: 1px solid #EBEDEF;
+  padding: 6px;
 }
