@@ -40,7 +40,6 @@ body {
   border-radius: 16px;
   background-color: #FFFFFF;
   box-shadow: 0px 4px 58.5px 0px #0000000F;
-
 }
 
 .sidebar-info {
@@ -225,7 +224,7 @@ span {
 }
 
 .todo-creations-container {
-  display: none;
+  display: flex;
   border-radius: 12px;
   flex-direction: column;
   border: 1px solid #E9E9E9;
@@ -239,11 +238,11 @@ span {
   padding: 16px;
 }
 
-.todo-creations-top > input {
+.todo-creations-top>input {
   font-size: 16px;
 }
 
-.todo-creations-top > textarea {
+.todo-creations-top>textarea {
   font-size: 14px;
 }
 
@@ -321,16 +320,19 @@ hr {
   border: 1px solid #E9E9E9;
 }
 
-.priority > label {
+.priority>label {
   cursor: pointer;
 }
 
 .priority {
+  width: min-content;
   border-radius: 4px;
   padding: 2px 8px;
   font-weight: 700;
   font-size: 12px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
 }
 
 .low {
@@ -368,11 +370,11 @@ hr {
   height: 34px;
 }
 
-.show{
+.show {
   display: flex;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -385,11 +387,13 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   border-radius: 12px;
   border: 1px solid #E9E9E9;
   background-color: var(--Oil01);
   padding: 24px 20px 24px 24px;
   position: relative;
+  margin-bottom: 12px;
 }
 
 .red-line {
@@ -405,6 +409,8 @@ hr {
 
 .task-threedots {
   align-self: flex-start;
+  text-align: end;
+  cursor: pointer;
 }
 
 .task-title {
@@ -417,14 +423,74 @@ hr {
   font-weight: 700;
 }
 
-h5{
+.task-h5 {
   font-size: 14px;
   font-weight: 400;
   color: var(--Neutral);
+  text-align: start;
+  margin-right: 32px;
 }
 
 input[type="checkbox"].todo {
   transform: scale(1.5); 
-  accent-color: #007BFF;         
+  accent-color: #007BFF;  /* This sets the checkbox color when checked */       
   margin-right: 0.3em;
+  cursor: pointer;
+}
+
+input[type="checkbox"].todo:checked {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.task-popup img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.task-popup {
+  border-radius: 12px;
+  box-shadow: 0px 12px 24px -6px #1414190F;
+  border: 1px solid #EBEDEF;
+  padding: 6px;
+}
+
+.completed-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  margin: auto;
+  margin-top: 64px;
+  margin-bottom: 69px;
+  width: 62%;
+}
+
+.completed-tasks h3 {
+  margin-bottom: unset;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: right;
+  color: var(--Oil10);
+}
+
+.completed-tasks h5 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: right;
+  color: var(--Oil07);
+}
+
+.task-list-completed {
+  width: 100%;
+}
+
+.red-line-done {
+  position: absolute;
+  right: 0px;
+  bottom: 12.5%;
+  height: 75%
 }
