@@ -122,21 +122,20 @@ const setupCheckboxListeners = () => {
 			if (e.target.checked) {
 				task.completed = true;
 				saveTasksToLocalStorage(tasks);
-
+				
 				const completedContainer = document.querySelector(".task-list-completed");
 				const styledTask = styleTaskAsCompleted(taskEl);
-
+				
 				completedContainer.appendChild(styledTask);
 				taskEl.remove();
+				renderTasks();
 			}
 		});
 	});
 };
-// end - Completed Tasks Functinality
 
 function renderTasks() {
 	const priorityOrder = { high: 1, mid: 2, low: 3 };
-	
 	const activeTasks = tasks.filter(t => !t.completed);
 	const completedTasks = tasks.filter(t => t.completed);
 	CompletedCount.innerHTML = `${completedTasks.length || 0} `;
@@ -226,6 +225,12 @@ const TodoCreationBtnHandler = () => {
 
 	saveTasksToLocalStorage(tasks);
 	renderTasks();
+	const old = document.getElementById("selected-priority-span");
+	if (old) old.remove();
+	prioritySelectionBtnSvg.classList.toggle("rotate-90");
+	priorityList.classList.toggle("show");
+	priorityContainer.classList.remove("hide");
+	priorities.forEach(p => p.checked = false);
 	hideForm();
 	addTaskBtn.classList.remove("hide");
 };
@@ -248,6 +253,7 @@ const PrioritiesHandler = (event) => {
 	priorityContainer.classList.add("hide");
 	const span = document.createElement("span");
 	span.className = `priority ${value}`;
+	span.id = "selected-priority-span";
 
 	span.innerHTML = `
 		<img src="./assets/img/close-icon.svg" 
