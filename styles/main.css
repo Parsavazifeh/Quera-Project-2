@@ -421,6 +421,7 @@ hr {
 .task-title {
   display: flex;
   flex-direction: row;
+  gap: 12px;
 }
 
 .task-threedots {
@@ -429,11 +430,6 @@ hr {
   align-self: flex-start;
   text-align: end;
   cursor: pointer;
-}
-
-.task-title {
-  gap: 12px;
-  margin-bottom: 12px;
 }
 
 .task-title p {
@@ -447,6 +443,7 @@ hr {
   color: var(--Neutral);
   text-align: start;
   margin-right: 32px;
+  margin-top: 10px;
 }
 
 input[type="checkbox"].todo {
@@ -510,10 +507,10 @@ input[type="checkbox"].todo:checked {
   position: absolute;
   right: 0px;
   bottom: 12.5%;
-  height: 75%
+  height: 70%
 }
 
-@media (max-width: 400px) {
+@media (max-width: 640px) {
   body {
     flex-direction: column;
   }
@@ -636,8 +633,5 @@ input[type="checkbox"].todo:checked {
     margin-left: 16px;
     margin-right: 16px;
     width: 100%;
-
   }
-
-  .priority-remove-icon {}
 }
