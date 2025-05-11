@@ -15,7 +15,8 @@ const priorityList = document.querySelector(".priority-list");
 const priorities = document.querySelectorAll("input[name='priority']");
 const selectedPrioritySpan = document.querySelector(".selected-priority");
 const priorityContainer = document.querySelector(".priority-container")
-const spancount = document.getElementById("count");
+const InCompletedCount = document.getElementById("incomplete");
+const CompletedCount = document.getElementById("complete");
 const priority = document.querySelectorAll(".priority");
 
 const priorityLabels = {
@@ -27,15 +28,16 @@ const priorityLabels = {
 class Task {
 	static _nextId = 1;
 
-	constructor(taskName, taskDescription, priority, id = null) {
+	constructor(taskName, taskDescription, priority, id = null, completed = false) {
 		this.id = id !== null ? id : Task._nextId++;
 		this.taskName = taskName;
 		this.taskDescription = taskDescription;
 		this.priority = priority;
+		this.completed = completed;
 	}
 
 	static fromJSON(obj) {
-		const t = new Task(obj.taskName, obj.taskDescription, obj.priority, obj.id);
+		const t = new Task(obj.taskName, obj.taskDescription, obj.priority, obj.id, obj.completed || false);
 		Task._nextId = Math.max(Task._nextId, obj.id + 1);
 		return t;
 	}
@@ -84,20 +86,79 @@ function loadTasksFromLocalStorage() {
 	return JSON.parse(data).map(Task.fromJSON);
 }
 
+function styleTaskAsCompleted(taskEl) {
+	const clonedTask = taskEl.cloneNode(true);
+
+	const checkbox = clonedTask.querySelector(".todo");
+	checkbox.disabled = true;
+	checkbox.checked = true;
+
+	const titleP = clonedTask.querySelector(".task-title p");
+	titleP.style.textDecoration = "line-through";
+
+	const desc = clonedTask.querySelector(".task-h5");
+	const priorityLabel = clonedTask.querySelector("label.priority");
+
+	desc.style.display = "none";
+	priorityLabel.style.display = "none";
+
+	const popup = clonedTask.querySelector(".task-popup");
+	if (popup) popup.remove();
+
+	const redLine = clonedTask.querySelector(".red-line");
+	if (redLine) redLine.classList.replace('red-line', 'red-line-done');
+
+	return clonedTask;
+}
+
+const setupCheckboxListeners = () => {
+	const checkboxes = document.querySelectorAll(".task .todo");
+	checkboxes.forEach(checkbox => {
+		checkbox.addEventListener("change", (e) => {
+			const taskId = Number(e.target.id.replace("todo-", ""));
+			const task = tasks.find(t => t.id === taskId);
+			const taskEl = e.target.closest(".task");
+
+			if (e.target.checked) {
+				task.completed = true;
+				saveTasksToLocalStorage(tasks);
+
+				const completedContainer = document.querySelector(".task-list-completed");
+				const styledTask = styleTaskAsCompleted(taskEl);
+
+				completedContainer.appendChild(styledTask);
+				taskEl.remove();
+			}
+		});
+	});
+};
+// end - Completed Tasks Functinality
+
 function renderTasks() {
-	spancount.innerHTML = `${tasks.length || 0} `;
 	const priorityOrder = { high: 1, mid: 2, low: 3 };
+	
+	const activeTasks = tasks.filter(t => !t.completed);
+	const completedTasks = tasks.filter(t => t.completed);
+	CompletedCount.innerHTML = `${completedTasks.length || 0} `;
+	InCompletedCount.innerHTML = `${activeTasks.length || 0} `;
 
-	if (tasks.length === 0) return;
-
-	const sortedTasks = tasks.slice().sort((a, b) => {
+	const sortedActiveTasks = activeTasks.sort((a, b) => {
 		return priorityOrder[a.priority] - priorityOrder[b.priority];
 	});
 
-	const container = document.querySelector(".task-list");
-	container.innerHTML = sortedTasks
-		.map((task) => task.displayTaskHTML())
-		.join("");
+	const activeContainer = document.querySelector(".task-list");
+	const completedContainer = document.querySelector(".task-list-completed");
+
+	activeContainer.innerHTML = sortedActiveTasks.map(t => t.displayTaskHTML()).join("");
+
+	completedContainer.innerHTML = "";
+	completedTasks.forEach(task => {
+		const temp = document.createElement("div");
+		temp.innerHTML = task.displayTaskHTML();
+		const styledTask = styleTaskAsCompleted(temp.firstElementChild);
+		completedContainer.appendChild(styledTask);
+	});
+	setupCheckboxListeners();
 }
 
 let currentEditTaskId = null;
@@ -247,4 +308,3 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
-

@@ -238,11 +238,11 @@ span {
   padding: 16px;
 }
 
-.todo-creations-top > input {
+.todo-creations-top>input {
   font-size: 16px;
 }
 
-.todo-creations-top > textarea {
+.todo-creations-top>textarea {
   font-size: 14px;
 }
 
@@ -320,7 +320,7 @@ hr {
   border: 1px solid #E9E9E9;
 }
 
-.priority > label {
+.priority>label {
   cursor: pointer;
 }
 
@@ -346,7 +346,7 @@ hr {
 }
 
 .high {
-  background-color: #FFE2DB; 
+  background-color: #FFE2DB;
   color: #FF5F37;
 }
 
@@ -370,11 +370,11 @@ hr {
   height: 34px;
 }
 
-.show{
+.show {
   display: flex;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -387,6 +387,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   border-radius: 12px;
   border: 1px solid #E9E9E9;
   background-color: var(--Oil01);
@@ -422,7 +423,7 @@ hr {
   font-weight: 700;
 }
 
-.task-h5{
+.task-h5 {
   font-size: 14px;
   font-weight: 400;
   color: var(--Neutral);
@@ -432,8 +433,14 @@ hr {
 
 input[type="checkbox"].todo {
   transform: scale(1.5); 
-  accent-color: #007BFF;         
+  accent-color: #007BFF;  /* This sets the checkbox color when checked */       
   margin-right: 0.3em;
+  cursor: pointer;
+}
+
+input[type="checkbox"].todo:checked {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .task-popup img {
@@ -447,4 +454,43 @@ input[type="checkbox"].todo {
   box-shadow: 0px 12px 24px -6px #1414190F;
   border: 1px solid #EBEDEF;
   padding: 6px;
+}
+
+.completed-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  margin: auto;
+  margin-top: 64px;
+  margin-bottom: 69px;
+  width: 62%;
+}
+
+.completed-tasks h3 {
+  margin-bottom: unset;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: right;
+  color: var(--Oil10);
+}
+
+.completed-tasks h5 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: right;
+  color: var(--Oil07);
+}
+
+.task-list-completed {
+  width: 100%;
+}
+
+.red-line-done {
+  position: absolute;
+  right: 0px;
+  bottom: 12.5%;
+  height: 75%
 }

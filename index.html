@@ -75,20 +75,21 @@
         <section class="todo-creations-group">
             <div class="today-task">
                 <h3>تسک‌های امروز</h3>
-                <h5><span id="count"> </span>تسک را باید انجام دهید.</h5>
+                <h5><span id="incomplete"> </span>تسک را باید انجام دهید.</h5>
                 <button class="add-task-btn">
                     <img src="./assets/img/add.svg" alt="plus icon" />
                     <span>افزودن وظیفه جدید</span>
                 </button>
             </div>
             <img src="./assets/img/Frame 1000005523.png" alt="add task image" class="image" />
+            <!-- end of before adding a new task -->
+
             <!-- start of adding a new task -->
             <section class="todo-creations-container">
                 <div class="todo-creations-top">
                     <input type="text" placeholder="نام تسک" class="todo-creation-title" />
                     <textarea name="" id="" placeholder="توضیحات" rows="1" class="todo-creation-desc"></textarea>
-                    <span class="selected-priority">
-                    </span>
+                    <span class="selected-priority"> </span>
                     <div class="priority-container">
                         <button class="priority-selection-btn">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -121,12 +122,13 @@
                 <!-- <img src="./assets/img/Line 483.svg" alt="line" /> -->
                 <hr />
                 <div class="todo-creations-bottom">
-                    <button class="todo-creation-btn" data-mode="add">اضافه کردن تسک</button>
+                    <button class="todo-creation-btn" data-mode="add">
+                        اضافه کردن تسک
+                    </button>
                 </div>
             </section>
             <!-- end of adding a new task -->
-            <div class="task-list">
-            </div>
+            <div class="task-list"></div>
             <!-- <section class="task">
                 <div>
                     <img class="red-line" src="./assets/img/redline.png" alt="red-line">
@@ -148,7 +150,12 @@
                 </div>
             </section> -->
         </section>
-        <!-- end of before adding a new task -->
+
+        <section class="completed-tasks">
+            <h3>تسک‌های انجام شده</h3>
+            <h5><span id="complete"> </span>تسک انجام شده است</h5>
+            <div class="task-list-completed"></div>
+        </section>
     </main>
     <script src="./app.js"></script>
 </body>
