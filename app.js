@@ -122,10 +122,10 @@ const setupCheckboxListeners = () => {
 			if (e.target.checked) {
 				task.completed = true;
 				saveTasksToLocalStorage(tasks);
-				
+
 				const completedContainer = document.querySelector(".task-list-completed");
 				const styledTask = styleTaskAsCompleted(taskEl);
-				
+
 				completedContainer.appendChild(styledTask);
 				taskEl.remove();
 				renderTasks();
@@ -314,3 +314,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
+
+const icon = document.getElementById("icon");
+icon.onclick = function () {
+	document.body.classList.toggle("dark-theme");
+	if (document.body.classList.contains("dark-theme")) {
+		icon.src = "./assets/img/sun.png";
+	} else {
+		icon.src = "./assets/img/moon.png";
+	}
+}
