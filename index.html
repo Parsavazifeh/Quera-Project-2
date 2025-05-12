@@ -1,11 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl" class="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Document</title>
 </head>
-<body>
-    
+
+<body class="dark:bg-[#060C18]">
+    <!-- start - responsive - mobile -->
+    <header>
+        <div class="header dark:bg-[#091120]">
+            <img src="./assets/img/Frame 12161.svg" alt="hambergur menu icon" class="dark:stroke-[#FFFFFF]" />
+            <span class="dark:text-[#FFFFFF]">کوئرا لیست</span>
+        </div>
+    </header>
+
+    <div class="mobile-info">
+        <div class="img">
+            <img src="./assets/img/Ellipse 136 (2).svg" alt="profile picture" />
+        </div>
+        <div class="desc">
+            <label class="dark:text-[#FFFFFF]">سلام، رویا</label>
+            <span class="dark:text-[#848890]">امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲</span>
+        </div>
+    </div>
+
+    <div class="mobile-border"></div>
+
+    <!-- start of sidebar -->
+    <aside class="sidebar-container dark:bg-[#091120]">
+        <div class="sidebar-info">
+            <div class="img">
+                <img src="./assets/img/Ellipse 136 (2).svg" alt="profile picture" />
+            </div>
+            <div class="desc">
+                <label class="dark:text-[#FFFFFF]">سلام، رویا</label>
+                <span class="dark:text-[#848890]">سه‌شنبه، ۵ بهمن ۱۴۰۲</span>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li class="dark:bg-[#041933]">
+                    <img src="./assets/img/home-2.svg" alt="home icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">خانه</span>
+                </li>
+                <li>
+                    <img src="./assets/img/task-square.svg" alt="task icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">تسک‌ها</span>
+                </li>
+                <li>
+                    <img src="./assets/img/calendar.svg" alt="calendar icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">تقویم</span>
+                </li>
+                <li>
+                    <img src="./assets/img/arrange-square-2.svg" alt="report icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">گزارشات</span>
+                </li>
+                <li>
+                    <img src="./assets/img/setting.svg" alt="setting icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">تنظیمات</span>
+                </li>
+                <li>
+                    <img src="./assets/img/24-support.svg" alt="support icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">پشتیبانی</span>
+                </li>
+                <li>
+                    <img src="./assets/img/profile.svg" alt="profile icon" class="dark:stroke-white" />
+                    <span class="dark:text-[#FFFFFF]">پروفایل</span>
+                </li>
+            </ul>
+        </div>
+        
+        <img src="./assets/img/moon.png" alt="icon" id="icon" />
+        <img src="./assets/img/Line 481.svg" alt="line" class="line dark:stroke-[#2F3132]" />
+        <button class="exitButton">
+            <img src="./assets/img/logout.svg" alt="exitButton icon" class="dark:stroke-[#F7F7F7]" />
+            <span class="dark:text-[#F7F7F7]">خروج</span>
+        </button>
+    </aside>
+    <!-- end of sidebar -->
+    <main>
+        <!-- start of before adding a new task -->
+        <section class="todo-creations-group">
+            <div class="today-task">
+                <h3 class="dark:text-[#FFFFFF]">تسک‌های امروز</h3>
+                <h5 class="dark:text-[#848890]">
+                    <span id="incomplete"> </span>تسک را باید انجام دهید.
+                </h5>
+                <button class="add-task-btn dark:bg-[#091120] text-[#57A8FF] border-[#203E62]">
+                    <img src="./assets/img/add.svg" alt="plus icon" class="dark:stroke-[#57A8FF]" />
+                    <span>افزودن وظیفه جدید</span>
+                </button>
+            </div>
+            <img src="./assets/img/Frame 1000005523.png" alt="add task image" class="image" />
+            <!-- end of before adding a new task -->
+
+            <!-- start of adding a new task -->
+            <section class="todo-creations-container dark:bg-[#060C18] border-[#3D3D3D]">
+                <div class="todo-creations-top">
+                    <input type="text" placeholder="نام تسک" class="todo-creation-title dark:placeholder-[#FFFFFF]" />
+                    <textarea name="" id="" placeholder="توضیحات" rows="1"
+                        class="todo-creation-desc dark:placeholder-[#83878F]"></textarea>
+                    <span class="selected-priority"> </span>
+                    <div class="priority-container">
+                        <button class="priority-selection-btn dark:border-[#83878F]">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.51661 2.58331H13.0499C13.6166 2.58331 14.325 2.97498 14.625 3.45831L18.1083 9.02498C18.4416 9.56665 18.4083 10.4166 18.025 10.925L13.7083 16.675C13.4 17.0833 12.7333 17.4166 12.225 17.4166H3.51661C2.05828 17.4166 1.17498 15.8166 1.94165 14.575L4.24995 10.8833C4.55828 10.3916 4.55828 9.59165 4.24995 9.09998L1.94165 5.40831C1.17498 4.18331 2.06661 2.58331 3.51661 2.58331Z"
+                                    stroke="#AFAEB2" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" class="dark:stroke-[#FFFFFF]" />
+                            </svg>
+                            <span class="dark:text-[#FFFFFF]">تگ‌ها</span>
+                        </button>
+                        <div class="priority-list dark:bg-[#0B192D] border-[#293242]">
+                            <span class="priority low dark:bg-[#233332]">
+                                <label for="low-priority" class="dark:text-[#02E1A2]">پایین</label>
+                                <input type="radio" name="priority" id="low-priority" value="low" />
+                            </span>
+                            <img src="./assets/img/Line 485 (1).svg" alt="line" class="dark:stroke-[#293242]" />
+                            <span class="priority mid dark:bg-[#302F2D]">
+                                <label for="mid-priority" class="dark:text-[#FFAF37]">متوسط</label>
+                                <input type="radio" name="priority" id="mid-priority" value="mid" />
+                            </span>
+                            <img src="./assets/img/Line 485 (1).svg" alt="line" class="dark:stroke-[#293242]" />
+                            <span class="priority high dark:bg-[#3D2327]">
+                                <label for="high-priority" class="dark:text-[#FF5F37]">بالا</label>
+                                <input type="radio" name="priority" id="high-priority" value="high" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="dark:border-[#3D3D3D]" />
+                <div class="todo-creations-bottom">
+                    <button class="todo-creation-btn dark:bg-[#002247] text-[#FFFFFF]" data-mode="add">
+                        اضافه کردن تسک
+                    </button>
+                </div>
+            </section>
+            <!-- end of adding a new task -->
+            <div class="task-list"></div>
+        </section>
+
+        <section class="completed-tasks">
+            <h3 class="dark:text-[#FFFFFF]">تسک‌های انجام شده</h3>
+            <h5 class="dark:text-[#848890]">
+                <span id="complete"> </span>تسک انجام شده است
+            </h5>
+            <div class="task-list-completed"></div>
+        </section>
+    </main>
+    <script src="./app.js"></script>
 </body>
+
 </html>
