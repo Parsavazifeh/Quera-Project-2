@@ -486,18 +486,13 @@ hr {
 .task-title {
   display: flex;
   flex-direction: row;
+  gap: 12px;
 }
 
 .task-threedots {
-  width: 4px;
-  height: 18px;
   align-self: flex-start;
   text-align: end;
   cursor: pointer;
-}
-
-.task-title {
-  gap: 12px;
 }
 
 .task-title p {
@@ -527,12 +522,6 @@ input[type="checkbox"].todo:checked {
   opacity: 0.7;
 }
 
-.task-popup img {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-}
-
 .task-popup {
   flex-direction: row;
   align-items: center;
@@ -540,6 +529,12 @@ input[type="checkbox"].todo:checked {
   box-shadow: 0px 12px 24px -6px #1414190F;
   border: 1px solid #EBEDEF;
   padding: 6px;
+}
+
+.task-popup img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
 }
 
 .completed-tasks {
